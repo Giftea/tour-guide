@@ -44,7 +44,7 @@ const App = () => {
 
       getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {
-          setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
+          setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
           setFilteredPlaces([]);
           setRating('');
           setIsLoading(false);
@@ -66,7 +66,7 @@ const App = () => {
       <CssBaseline />
       <Header onPlaceChanged={onPlaceChanged} onLoad={onLoad} />
       <Grid container className={classes.body}  style={{ width: '100%' }}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <List
             isLoading={isLoading}
             childClicked={childClicked}
@@ -77,7 +77,7 @@ const App = () => {
             setRating={setRating}
           />
         </Grid>
-        <Grid item xs={0} md={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid item md={8} xs={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Map
             setChildClicked={setChildClicked}
             setBounds={setBounds}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-
+import logo from '../../assets/TRAVEL TOUR.svg'
 import useStyles from './styles.js';
 
 const Header = ({ onPlaceChanged, onLoad }) => {
@@ -10,7 +10,7 @@ const Header = ({ onPlaceChanged, onLoad }) => {
     <AppBar className={classes.navbar} position="static">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h5" className={classes.title}>
-          Tour Guide ✈️
+           <img src={logo} alt = 'Tour Guide' />
         </Typography>
       </Toolbar>
     </AppBar>

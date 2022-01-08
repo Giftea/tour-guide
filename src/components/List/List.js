@@ -9,7 +9,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
   const classes = useStyles();
 
   useEffect(() => {
-    setElRefs((refs) => Array(places.length).fill().map((_, i) => refs[i] || createRef()));
+    setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
   }, [places]);
 
   return (
@@ -17,7 +17,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
       <Typography variant="h5">Discover Restaurants, Hotels and Attraction Sites Around You </Typography>
       {isLoading ? (
         <div className={classes.loading}>
-          <CircularProgress size="5rem" />
+          <CircularProgress size="5rem" color="inherit" />
         </div>
       ) : (
         <>
@@ -40,7 +40,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
           </FormControl>
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
-              <Grid ref={elRefs[i]} key={i} item xs={12} md={6}>
+              <Grid ref={elRefs[i]} key={i} item xs={12} >
                 <PlaceDetails selected={Number(childClicked) === i} refProp={elRefs[i]} place={place} />
               </Grid>
             ))}
