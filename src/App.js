@@ -5,8 +5,10 @@ import { getPlacesData, getWeatherData } from './api/tourGuideAPI';
 import Header from './components/Header/Header';
 import List from './components/List/List';
 import Map from './components/Map/Map';
+import useStyles from './styles.js';
 
 const App = () => {
+  const classes = useStyles();
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
 
@@ -63,8 +65,8 @@ const App = () => {
     <>
       <CssBaseline />
       <Header onPlaceChanged={onPlaceChanged} onLoad={onLoad} />
-      <Grid container spacing={3} style={{ width: '100%' }}>
-        <Grid item xs={12} md={4}>
+      <Grid container className={classes.body}  style={{ width: '100%' }}>
+        <Grid item xs={12} md={6}>
           <List
             isLoading={isLoading}
             childClicked={childClicked}
@@ -75,7 +77,7 @@ const App = () => {
             setRating={setRating}
           />
         </Grid>
-        <Grid item xs={12} md={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid item xs={0} md={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Map
             setChildClicked={setChildClicked}
             setBounds={setBounds}
